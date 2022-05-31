@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => NULL,
+        'name' => '__root__',
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => NULL,
+            'dev_requirement' => false,
+        ),
+        'catfan/medoo' => array(
+            'pretty_version' => 'v2.1.3',
+            'version' => '2.1.3.0',
+            'type' => 'framework',
+            'install_path' => __DIR__ . '/../catfan/medoo',
+            'aliases' => array(),
+            'reference' => 'bf7d672e9b5384f375249d5ba2783ee7bee08138',
+            'dev_requirement' => false,
+        ),
+        'mikecao/flight' => array(
+            'pretty_version' => 'v1.3.9',
+            'version' => '1.3.9.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mikecao/flight',
+            'aliases' => array(),
+            'reference' => 'bc5e03ca59accb3ef37e31b6d4a2a9c78c7bb7ce',
+            'dev_requirement' => false,
+        ),
+    ),
+);

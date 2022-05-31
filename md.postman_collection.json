@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "1df102c3-5de0-4ac5-866c-80f9bcbfc5ae",
+		"name": "md",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "homepage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": false,
+				"disableUrlEncoding": false,
+				"strictSSL": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/logout?token=o5hioxdh9lokd4vw",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"logout"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "o5hioxdh9lokd4vw",
+							"description": "user token - required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/products?token={{token}}&page=1&offset=0&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"description": "user token - required"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "page number - required if offset is null - default: 1"
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"description": "paging offset - ignored if \"page\" has value - default: 0"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "number of products to show at one request - default: 10"
+						},
+						{
+							"key": "search[value]",
+							"value": "mdm",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/product?token={{token}}&product_id=4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"description": "user token - required"
+						},
+						{
+							"key": "product_id",
+							"value": "4",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "2",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Cocaine",
+							"description": "product name",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Sale!",
+							"description": "product description",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "18,3",
+							"description": "product price",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "1",
+							"description": "product discount",
+							"type": "text"
+						},
+						{
+							"key": "sale_status",
+							"value": "0",
+							"description": "product sale_status",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"description": "product status",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/product/edit?token={{token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"product",
+						"edit"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"description": "user token - required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "42",
+							"description": "required",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/product/delete?token={{token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"product",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"description": "user token - required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Green Snowflake",
+							"description": "product name - required",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Best for winter",
+							"description": "product description",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "35",
+							"description": "product price - required",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "0",
+							"description": "product discount",
+							"type": "text"
+						},
+						{
+							"key": "sale_status",
+							"value": "1",
+							"description": "product sale_status",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"description": "product status",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/product/add?token={{token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"product",
+						"add"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"description": "user token - required"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/md_backend"
+		},
+		{
+			"key": "username",
+			"value": "enes"
+		},
+		{
+			"key": "password",
+			"value": "leavemealone\n"
+		},
+		{
+			"key": "token",
+			"value": "rb07sc28phvpobeb"
+		}
+	]
+}
